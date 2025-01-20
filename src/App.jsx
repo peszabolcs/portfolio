@@ -17,7 +17,7 @@ function App() {
                 <div className="hero-text" data-aos="fade-right">
                   <h1 className="hero-heading">Perjési Szabolcs</h1>
                   <div className="hero-subheading">
-                    Weblap tervező és fejlesztő
+                    Szoftverfejlesztő és webdesigner
                   </div>
                   <section className="section-2">
                     <a
@@ -139,7 +139,7 @@ function App() {
               </p>
               <a
                 target="_blank"
-                href="http://bit.ly/3RGiVjX"
+                href="/php/index.php"
                 className="hollow-button all-caps"
               >
                 Megnyitás

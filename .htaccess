@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+# PHP fájlok engedélyezése
+AddType application/x-httpd-php .php
