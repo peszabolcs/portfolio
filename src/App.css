@@ -435,8 +435,7 @@ p {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  gap: 40px;
-  padding: 0 20px;
+  transition: transform 0.5s ease;
 }
 
 .references-carousel::-webkit-scrollbar {
@@ -444,7 +443,7 @@ p {
 }
 
 .reference-card {
-  flex: 0 0 calc(100% - 40px);
+  flex: 0 0 100%;
   scroll-snap-align: center;
   display: flex;
   flex-direction: row;
@@ -452,8 +451,9 @@ p {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin: 0;
-  width: 100%;
+  margin: 0 20px;
+  width: calc(100% - 40px);
+  transition: transform 0.5s ease;
 }
 
 .reference-image-container {
@@ -561,23 +561,15 @@ p {
 
 @media (max-width: 768px) {
   .reference-card {
-    flex: 0 0 calc(100% - 20px);
-    margin: 0;
-  }
-
-  .references-carousel {
-    gap: 20px;
-    padding: 0 10px;
+    flex-direction: column;
+    margin: 0 10px;
+    width: calc(100% - 20px);
   }
 
   .reference-image-container {
     flex: 0 0 auto;
     height: auto;
     max-height: 300px;
-  }
-
-  .reference-content {
-    padding: 20px;
   }
 
   .nav-button {
@@ -587,5 +579,47 @@ p {
 
   .references-container {
     padding: 0 10px;
+  }
+}
+
+.modern-footer {
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-links a {
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: #007bff;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 0 1rem;
   }
 }

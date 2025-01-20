@@ -33,15 +33,13 @@ export default function References() {
       setIsTransitioning(true);
 
       const container = carouselRef.current;
-      const cards = container.getElementsByClassName("reference-card");
-      if (cards[index]) {
-        const cardLeft = cards[index].offsetLeft;
+      const cardWidth = container.offsetWidth;
+      const scrollAmount = index * cardWidth;
 
-        container.scrollTo({
-          left: cardLeft,
-          behavior: smooth ? "smooth" : "auto",
-        });
-      }
+      container.scrollTo({
+        left: scrollAmount,
+        behavior: smooth ? "smooth" : "auto",
+      });
 
       setTimeout(() => {
         setIsTransitioning(false);
@@ -54,7 +52,17 @@ export default function References() {
 
     setCurrentIndex((prevIndex) => {
       const newIndex = (prevIndex + 1) % references.length;
-      scrollToIndex(newIndex);
+
+      // Ha az utolsó elemről az elsőre ugrunk
+      if (newIndex === 0) {
+        scrollToIndex(references.length - 1, false); // Először az utolsóra ugrunk animáció nélkül
+        setTimeout(() => {
+          scrollToIndex(0); // Majd simán az elsőre
+        }, 50);
+      } else {
+        scrollToIndex(newIndex);
+      }
+
       return newIndex;
     });
   };
@@ -64,18 +72,23 @@ export default function References() {
 
     setCurrentIndex((prevIndex) => {
       const newIndex = (prevIndex - 1 + references.length) % references.length;
-      scrollToIndex(newIndex);
+
+      // Ha az első elemről az utolsóra ugrunk
+      if (newIndex === references.length - 1) {
+        scrollToIndex(0, false); // Először az elsőre ugrunk animáció nélkül
+        setTimeout(() => {
+          scrollToIndex(references.length - 1); // Majd simán az utolsóra
+        }, 50);
+      } else {
+        scrollToIndex(newIndex);
+      }
+
       return newIndex;
     });
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      scrollToIndex(currentIndex, false);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    scrollToIndex(currentIndex);
   }, [currentIndex]);
 
   return (

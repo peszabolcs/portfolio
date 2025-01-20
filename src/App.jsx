@@ -3,6 +3,7 @@ import "./App.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import References from "./components/references";
+import { Facebook, Linkedin, Mail, Copyright } from "lucide-react";
 
 function App() {
   useEffect(() => {
@@ -109,34 +110,38 @@ function App() {
         </div>
       </div>
       <References />
-      <div className="footer">
-        <div className="contact">
-          <h5 className="heading">
-            Elérhetőségek: <br />
-          </h5>
-          <p className="paragraph">
+      <footer className="modern-footer">
+        <div className="footer-content">
+          <div className="contact-links">
             <a
-              target="_blank"
               href="https://www.facebook.com/profile.php?id=100008572502234"
-            >
-              Facebook
-            </a>{" "}
-            <br />{" "}
-            <a
               target="_blank"
-              href="https://www.linkedin.com/in/szabolcs-perjési-a97152248"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
             >
-              LinkedIn
-            </a>{" "}
-            <br /> Mail: perjesidev@gmail.com
-          </p>
+              <Facebook />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/szabolcs-perjési-a97152248"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Linkedin />
+            </a>
+            <a href="mailto:perjesidev@gmail.com" aria-label="Email">
+              <Mail />
+            </a>
+          </div>
+          <div className="copyright">
+            <Copyright size={16} />
+            <span>
+              {new Date().getFullYear()} Perjési Szabolcs. Minden jog
+              fenntartva.
+            </span>
+          </div>
         </div>
-      </div>
-      <div className="footer center">
-        <div className="w-container">
-          <div className="footer-text">Copyright by Perjési Szabolcs</div>
-        </div>
-      </div>
+      </footer>
     </div>
   );
 }
