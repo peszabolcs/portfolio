@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import References from "./components/references";
 
 function App() {
   useEffect(() => {
@@ -107,47 +108,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="section accent">
-        <div className="reference-container">
-          <div className="section-heading centered white">
-            <h2>Referenciák</h2>
-            <div className="section-subheading">Néhány eddigi munkám</div>
-          </div>
-          <div className="reference-grid">
-            <div className="reference-card" data-aos="fade-up">
-              <img src="/coffeebreak.png" alt="" />
-              <h3 className="white-text">Kávézó</h3>
-              <p className="white-text">Saját tervezésű weboldal.</p>
-              <a
-                target="_blank"
-                href="https://peszabolcs.github.io/landing-page/"
-                className="hollow-button all-caps"
-              >
-                Megnyitás
-              </a>
-            </div>
-            <div
-              className="reference-card"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <img src="/orak.png" alt="" />
-              <h3 className="white-text">Órabolt</h3>
-              <p className="white-text">
-                Egy egyetemi projekt keretein belül készíteni kellett egy
-                webshopot.
-              </p>
-              <a
-                target="_blank"
-                href="/php/index.php"
-                className="hollow-button all-caps"
-              >
-                Megnyitás
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <References />
       <div className="footer">
         <div className="contact">
           <h5 className="heading">
