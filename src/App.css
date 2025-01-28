@@ -292,9 +292,9 @@ p {
   margin-bottom: 60px;
 }
 
-.reference-card img {
-  max-height: 300px;
-}
+/*.reference-card img {*/
+/*  max-height: 300px;*/
+/*}*/
 
 .footer {
   padding-top: 35px;
@@ -388,9 +388,9 @@ p {
     height: 250px;
   }
 
-  .reference-card img {
-    max-height: 100px;
-  }
+  /*.reference-card img {*/
+  /*  max-height: 100px;*/
+  /*}*/
 }
 
 .references-section {

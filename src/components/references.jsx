@@ -21,6 +21,12 @@ const references = [
     description: "Első startup projektem",
     link: "https://edu-venture.hu",
   },
+  {
+    image: "/weather-app.png",
+    title: "Időjárás alkalmazás",
+    description: "Egy egyszerű időjárás alkalmazás, OpenWeatherMap API használatával.",
+    link: "/weather-app/",
+  }
 ];
 
 export default function References() {
@@ -28,68 +34,33 @@ export default function References() {
   const carouselRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const scrollToIndex = (index, smooth = true) => {
-    if (carouselRef.current && !isTransitioning) {
-      setIsTransitioning(true);
-
-      const container = carouselRef.current;
-      const cardWidth = container.offsetWidth;
-      const scrollAmount = index * cardWidth;
-
-      container.scrollTo({
-        left: scrollAmount,
-        behavior: smooth ? "smooth" : "auto",
-      });
-
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 500);
-    }
-  };
-
   const nextReference = () => {
     if (isTransitioning) return;
 
-    setCurrentIndex((prevIndex) => {
-      const newIndex = (prevIndex + 1) % references.length;
-
-      // Ha az utolsó elemről az elsőre ugrunk
-      if (newIndex === 0) {
-        scrollToIndex(references.length - 1, false); // Először az utolsóra ugrunk animáció nélkül
-        setTimeout(() => {
-          scrollToIndex(0); // Majd simán az elsőre
-        }, 50);
-      } else {
-        scrollToIndex(newIndex);
-      }
-
-      return newIndex;
-    });
+    const newIndex = (currentIndex + 1) % references.length;
+    setCurrentIndex(newIndex);
   };
 
   const prevReference = () => {
     if (isTransitioning) return;
 
-    setCurrentIndex((prevIndex) => {
-      const newIndex = (prevIndex - 1 + references.length) % references.length;
-
-      // Ha az első elemről az utolsóra ugrunk
-      if (newIndex === references.length - 1) {
-        scrollToIndex(0, false); // Először az elsőre ugrunk animáció nélkül
-        setTimeout(() => {
-          scrollToIndex(references.length - 1); // Majd simán az utolsóra
-        }, 50);
-      } else {
-        scrollToIndex(newIndex);
-      }
-
-      return newIndex;
-    });
+    const newIndex = (currentIndex - 1 + references.length) % references.length;
+    setCurrentIndex(newIndex);
   };
 
   useEffect(() => {
-    scrollToIndex(currentIndex);
+    if (carouselRef.current) {
+      const container = carouselRef.current;
+      const cardWidth = container.offsetWidth;
+      const scrollAmount = currentIndex * cardWidth;
+
+      container.scrollTo({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
   }, [currentIndex]);
+
 
   return (
     <div className="references-section">
