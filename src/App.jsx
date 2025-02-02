@@ -35,7 +35,7 @@ function App() {
                       Tudj meg többet
                     </a>
                     <a
-                      href="/assets/CV/CV Perjési Szabolcs Proginfó.pdf"
+                      href="/assets/CV/CV Perjési Szabolcs.pdf"
                       download
                       className="button"
                     >
