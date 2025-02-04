@@ -1,2 +1,3 @@
 # portfolio
-[my personal portfolio with references](http://perjesiszabolcs.info)
+[Portfolio](http://perjesiszabolcs.info)
+This is my portfolio with references.
