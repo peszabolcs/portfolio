@@ -3,12 +3,23 @@ import "./App.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import References from "./components/references";
-import { Facebook, Linkedin, Mail, Copyright } from "lucide-react";
+import { Facebook, Linkedin, Mail, Copyright, Globe, Code, Layout, Database, Smartphone, Server, Settings } from "lucide-react";
+import { motion } from "framer-motion";
 
 function App() {
   useEffect(() => {
     Aos.init({ duration: 1500 });
   }, []);
+
+  const skills = [
+    { icon: <Globe />, title: "Web Fejlesztés", desc: "Modern weboldalak és alkalmazások készítése" },
+    { icon: <Code />, title: "Frontend", desc: "React.js, Vue.js, Angular, és modern JavaScript (ES6+)" },
+    { icon: <Layout />, title: "UI/UX Design", desc: "Felhasználóbarát felületek tervezése Tailwind, Bootstrap segítségével" },
+    { icon: <Server />, title: "Backend", desc: "Spring Boot, Node.js, PHP (Laravel, Symfony)" },
+    { icon: <Database />, title: "Adatbázisok", desc: "MySQL, PostgreSQL, MongoDB" },
+    { icon: <Smartphone />, title: "Mobil Fejlesztés", desc: "React Native, PWA fejlesztés" },
+    // { icon: <Settings />, title: "DevOps & CI/CD", desc: "Docker, GitLab CI/CD, Vercel, Netlify" }
+  ];
   return (
     <div className="body">
       <div className="hero-section centered">
@@ -19,7 +30,7 @@ function App() {
                 <div className="hero-text" data-aos="fade-right">
                   <h1 className="hero-heading">Perjési Szabolcs</h1>
                   <div className="hero-subheading">
-                    Szoftverfejlesztő és webdesigner
+                    Front end fejlesztő
                   </div>
                   <section className="section-2">
                     <a
@@ -46,7 +57,7 @@ function App() {
                 <div className="photo" data-aos="fade-left">
                   <img
                     id="profilePicture"
-                    src="/vasvari-2022_vasvari_12b-BALI1589_3.JPG"
+                    src="/vasvari-2022_vasvari_12b-BALI1589_3-removebg-preview.png"
                     loading="lazy"
                   />
                 </div>
@@ -60,52 +71,21 @@ function App() {
           <div className="section-title-group">
             <h2 className="section-heading centered">Miket csinálok?</h2>
           </div>
-          <div className="w-row">
-            <div
-              className="w-col-container"
-              data-aos="fade-down"
-              data-aos-delay="0"
-            >
-              <div className="white-box">
-                <img src="/lightbulb.png" alt="" />
-                <h3>Grafikus tervezés</h3>
-                <p>
-                  Weboldalakat tervezek, egyedi dizájnnal és felhasználóbarát
-                  élménnyel, hogy minden projekt kiemelkedjen a digitális
-                  térben.
-                </p>
-              </div>
-            </div>
-            <div
-              className="w-col-container"
-              data-aos="fade-down"
-              data-aos-delay="200"
-            >
-              <div className="white-box">
-                <img src="/laptop.jpg" alt="" />
-                <h3>Webfejlesztés</h3>
-                <p>
-                  Modern, reszponzív weboldalakat készítek, amelyek kiváló
-                  felhasználói élményt nyújtanak, és megfelelnek az üzleti
-                  céloknak.
-                </p>
-              </div>
-            </div>
-            <div
-              className="w-col-container"
-              data-aos="fade-down"
-              data-aos-delay="400"
-            >
-              <div className="white-box">
-                <img src="/software-engineer-icon-22.png" alt="" />
-                <h3>SEO</h3>
-                <p>
-                  Olyan optimalizálást alkalmazok, amelyek javítják a weboldalak
-                  láthatóságát a keresőmotorokban, ezzel növelve a forgalmat és
-                  a poteniciális ügyfelek számát.
-                </p>
-              </div>
-            </div>
+          <div className="skills-grid">
+            {skills.map((skill, index) => (
+                <motion.div
+                    key={index}
+                    className="skill-card"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.15 }}
+                    viewport={{ once: true }}
+                >
+                  <div className="skill-icon">{skill.icon}</div>
+                  <h3>{skill.title}</h3>
+                  <p>{skill.desc}</p>
+                </motion.div>
+            ))}
           </div>
         </div>
       </div>
