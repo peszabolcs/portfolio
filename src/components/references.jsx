@@ -26,6 +26,12 @@ const references = [
     title: "Időjárás alkalmazás",
     description: "Egy egyszerű időjárás alkalmazás, OpenWeatherMap API használatával.",
     link: "/weather-app/",
+  },
+  {
+    image: "/pwdgen.png",
+    title: "Jelszó generátor",
+    description: "Jelszó generátor webalkalmazás.",
+    link: "https://peszabolcs.github.io/password-generator/",
   }
 ];
 

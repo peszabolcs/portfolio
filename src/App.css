@@ -414,7 +414,7 @@ p {
 }
 
 .reference-card img {
-  max-height: 300px;
+  /*max-height: 300px;*/
 }
 
 .footer {
@@ -509,9 +509,9 @@ p {
     height: 250px;
   }
 
-  /*.reference-card img {*/
-  /*  max-height: 100px;*/
-  /*}*/
+  .reference-card img {
+    max-height: 170px;
+  }
 }
 
 .references-section {
