@@ -169,9 +169,14 @@ a.info-value:hover {
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
 }
 
-.form-submit:hover {
+.form-submit:hover:not(:disabled) {
   box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
   transform: translateY(-3px);
+}
+
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 968px) {

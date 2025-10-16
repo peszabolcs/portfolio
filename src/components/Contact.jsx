@@ -1,17 +1,21 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
   const ref = useRef(null);
+  const formRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -20,12 +24,49 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Itt kezelheted a form submission-t (pl. emailjs, API, stb.)
-    console.log('Form submitted:', formData);
-    alert('Köszönöm az üzeneted! Hamarosan jelentkezem.');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Check if EmailJS is configured
+      if (!serviceId || !templateId || !publicKey) {
+        console.error('EmailJS not configured. Please set up your .env file.');
+        setSubmitStatus('error');
+        alert('Az email küldés nincs beállítva. Kérlek vedd fel velem a kapcsolatot közvetlenül: perjesidev@gmail.com');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Send email using EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'perjesidev@gmail.com',
+        },
+        publicKey
+      );
+
+      setSubmitStatus('success');
+      alert('Köszönöm az üzeneted! Hamarosan jelentkezem.');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+      alert('Hiba történt az üzenet küldése közben. Kérlek próbáld újra később, vagy írj közvetlenül a perjesidev@gmail.com címre.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -104,6 +145,7 @@ const Contact = () => {
           </motion.div>
 
           <motion.form
+            ref={formRef}
             className="contact-form"
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 50 }}
@@ -154,8 +196,9 @@ const Contact = () => {
               className="form-submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              disabled={isSubmitting}
             >
-              <span>Üzenet Küldése</span>
+              <span>{isSubmitting ? 'Küldés...' : 'Üzenet Küldése'}</span>
               <FaPaperPlane />
             </motion.button>
           </motion.form>
