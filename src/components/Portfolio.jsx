@@ -142,24 +142,28 @@ const Portfolio = () => {
                 />
                 <div className="card-overlay">
                   <div className="overlay-links">
-                    <a
-                      href={project.demoLink}
-                      className="overlay-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaExternalLinkAlt />
-                      <span>Élő Demo</span>
-                    </a>
-                    <a
-                      href={project.githubLink}
-                      className="overlay-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaGithub />
-                      <span>GitHub</span>
-                    </a>
+                    {project.demoLink !== '#' && (
+                      <a
+                        href={project.demoLink}
+                        className="overlay-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaExternalLinkAlt />
+                        <span>Élő Demo</span>
+                      </a>
+                    )}
+                    {project.githubLink !== '#' && (
+                      <a
+                        href={project.githubLink}
+                        className="overlay-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaGithub />
+                        <span>GitHub</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
