@@ -12,9 +12,9 @@ import "./Hero.css";
 
 const Hero = () => {
   const scrollToNext = () => {
-    const aboutSection = document.getElementById("about");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
+    const portfolioSection = document.getElementById("portfolio");
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 

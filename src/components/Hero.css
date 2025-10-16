@@ -1,11 +1,12 @@
 .hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+  padding: 2rem 0;
 }
 
 .hero-background {
@@ -70,8 +71,11 @@
   position: relative;
   z-index: 1;
   max-width: 1200px;
-  padding: 4rem 2rem 2rem;
+  padding: 5rem 2rem 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-badge {
@@ -109,12 +113,11 @@
 
 .hero-title {
   font-family: "Poppins", sans-serif;
-  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
   font-weight: 800;
   color: #fff;
   line-height: 1.2;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
 }
 
@@ -139,10 +142,10 @@
 
 .hero-description {
   font-family: "Inter", sans-serif;
-  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
   max-width: 650px;
   margin-left: auto;
   margin-right: auto;
@@ -151,15 +154,15 @@
 .hero-services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .hero-service-card {
-  padding: 2rem;
+  padding: 1.5rem;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -176,27 +179,27 @@
 }
 
 .hero-service-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .hero-service-title {
   font-family: "Poppins", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero-service-description {
   font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .hero-highlights {
@@ -254,14 +257,14 @@
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .cta-primary,
 .cta-secondary {
-  padding: 1rem 2.5rem;
+  padding: 0.875rem 2rem;
   font-family: "Inter", sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
@@ -298,21 +301,21 @@
   display: flex;
   gap: 1.5rem;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   transition: all 0.3s ease;
 }
 
@@ -324,9 +327,10 @@
 
 .scroll-indicator {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
   transition: color 0.3s ease;
+  margin-top: 0.5rem;
 }
 
 .scroll-indicator:hover {
