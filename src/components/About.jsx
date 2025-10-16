@@ -1,25 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FaReact, FaNode, FaFigma, FaDatabase, FaCode, FaMobile, FaPython, FaAngular } from 'react-icons/fa';
-import { SiTypescript, SiTailwindcss, SiPostgresql, SiSvelte, SiDjango } from 'react-icons/si';
+import { FaCode, FaMobile, FaDatabase } from 'react-icons/fa';
 import './About.css';
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const skills = [
-    { icon: <FaReact />, name: 'React & React Native', level: 95 },
-    { icon: <SiTypescript />, name: 'TypeScript', level: 92 },
-    { icon: <SiSvelte />, name: 'SvelteKit', level: 88 },
-    { icon: <FaAngular />, name: 'Angular', level: 85 },
-    { icon: <SiTailwindcss />, name: 'Tailwind CSS', level: 95 },
-    { icon: <FaPython />, name: 'Python & Django', level: 87 },
-    { icon: <FaNode />, name: 'Node.js', level: 85 },
-    { icon: <SiPostgresql />, name: 'PostgreSQL', level: 88 },
-    { icon: <FaFigma />, name: 'UI/UX Design', level: 90 },
-  ];
 
   const services = [
     {
@@ -97,42 +84,6 @@ const About = () => {
               <p className="service-description">{service.description}</p>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          className="skills-section"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <h3 className="skills-title">Technológiai Stack</h3>
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                className="skill-item"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-              >
-                <div className="skill-header">
-                  <div className="skill-info">
-                    <span className="skill-icon">{skill.icon}</span>
-                    <span className="skill-name">{skill.name}</span>
-                  </div>
-                  <span className="skill-percentage">{skill.level}%</span>
-                </div>
-                <div className="skill-bar">
-                  <motion.div
-                    className="skill-progress"
-                    initial={{ width: 0 }}
-                    animate={isInView ? { width: `${skill.level}%` } : {}}
-                    transition={{ duration: 1, delay: 0.8 + index * 0.1, ease: "easeOut" }}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>

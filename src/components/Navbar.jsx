@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
@@ -6,6 +7,8 @@ import './Navbar.css';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,20 +19,38 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+  const handleNavigation = (item) => {
+    setIsMobileMenuOpen(false);
+
+    if (item.isRoute) {
+      navigate(item.path);
+    } else {
+      // If we're not on the home page, navigate there first
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation then scroll
+        setTimeout(() => {
+          const element = document.getElementById(item.id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const element = document.getElementById(item.id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   };
 
   const navItems = [
-    { name: 'Kezdőlap', id: 'hero' },
-    { name: 'Rólam', id: 'about' },
-    { name: 'Portfólió', id: 'portfolio' },
-    { name: 'Árak', id: 'pricing' },
-    { name: 'Kapcsolat', id: 'contact' },
+    { name: 'Kezdőlap', id: 'hero', isRoute: false },
+    { name: 'Rólam', id: 'about', isRoute: false },
+    { name: 'Tech Stack', path: '/tech-stack', isRoute: true },
+    { name: 'Portfólió', id: 'portfolio', isRoute: false },
+    { name: 'Árak', id: 'pricing', isRoute: false },
+    { name: 'Kapcsolat', id: 'contact', isRoute: false },
   ];
 
   return (
@@ -40,13 +61,15 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-container">
-        <motion.div
-          className="nav-logo"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span className="logo-text">Perjési Szabolcs</span>
-        </motion.div>
+        <Link to="/">
+          <motion.div
+            className="nav-logo"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="logo-text">Perjési Szabolcs</span>
+          </motion.div>
+        </Link>
 
         <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           {navItems.map((item, index) => (
@@ -58,7 +81,7 @@ const Navbar = () => {
               transition={{ delay: index * 0.1 }}
             >
               <button
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavigation(item)}
                 className="nav-link"
               >
                 {item.name}

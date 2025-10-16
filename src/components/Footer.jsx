@@ -1,8 +1,11 @@
 import { FaGithub, FaLinkedin, FaEnvelope, FaHeart } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const socialLinks = [
     {
@@ -22,7 +25,27 @@ const Footer = () => {
     },
   ];
 
+  const handleNavigation = (sectionId) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   const scrollToTop = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -42,21 +65,24 @@ const Footer = () => {
               <h4 className="footer-title">Navigáció</h4>
               <ul className="footer-nav">
                 <li>
-                  <a href="#hero" onClick={scrollToTop}>
+                  <button onClick={scrollToTop}>
                     Kezdőlap
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#about">Rólam</a>
+                  <button onClick={() => handleNavigation('about')}>Rólam</button>
                 </li>
                 <li>
-                  <a href="#portfolio">Portfólió</a>
+                  <Link to="/tech-stack">Tech Stack</Link>
                 </li>
                 <li>
-                  <a href="#pricing">Árak</a>
+                  <button onClick={() => handleNavigation('portfolio')}>Portfólió</button>
                 </li>
                 <li>
-                  <a href="#contact">Kapcsolat</a>
+                  <button onClick={() => handleNavigation('pricing')}>Árak</button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('contact')}>Kapcsolat</button>
                 </li>
               </ul>
             </div>
