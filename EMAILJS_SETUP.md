@@ -27,6 +27,7 @@ Az email küldés működéséhez be kell állítanod az EmailJS szolgáltatást
 **Subject:** Új üzenet a portfólióról - {{from_name}}
 
 **Content:**
+
 ```
 Új üzenet érkezett a portfólió weboldal contact formjából.
 
@@ -66,6 +67,7 @@ VITE_EMAILJS_PUBLIC_KEY=AbCdEfGh12345678
 Győződj meg róla, hogy a `.env` fájl nincs commitolva a git repository-ba!
 
 A `.gitignore` fájlban legyen benne:
+
 ```
 .env
 .env.local
@@ -81,6 +83,7 @@ A `.gitignore` fájlban legyen benne:
 ## Hibaelhárítás
 
 Ha nem működik:
+
 - Ellenőrizd, hogy a `.env` fájlban nincs szóköz a `=` jel körül
 - Győződj meg róla, hogy a Service, Template és Public Key helyesen van bemásolva
 - Nézd meg a böngésző konzolját (F12) hibaüzenetekért
@@ -89,6 +92,7 @@ Ha nem működik:
 ## Ingyenes limit
 
 Az EmailJS ingyenes tier:
+
 - 200 email / hónap
 - Ez bőven elég egy portfólió oldalhoz
 
