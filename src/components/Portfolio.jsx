@@ -77,7 +77,7 @@ const Portfolio = () => {
       image:
         "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&h=600&fit=crop",
       tags: ["AI", "Computer Vision", "Python", "Real-time"],
-      demoLink: "https://revival27.hu/heimdall.html",
+      demoLink: "https://happyit.hu/heimdall/",
       githubLink: "#",
       category: "ai",
     },
@@ -142,7 +142,7 @@ const Portfolio = () => {
                 />
                 <div className="card-overlay">
                   <div className="overlay-links">
-                    {project.demoLink !== '#' && (
+                    {project.demoLink !== "#" && (
                       <a
                         href={project.demoLink}
                         className="overlay-link"
@@ -153,7 +153,7 @@ const Portfolio = () => {
                         <span>Élő Demo</span>
                       </a>
                     )}
-                    {project.githubLink !== '#' && (
+                    {project.githubLink !== "#" && (
                       <a
                         href={project.githubLink}
                         className="overlay-link"

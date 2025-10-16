@@ -1,5 +1,5 @@
 .about {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
   position: relative;
   overflow: hidden;
@@ -25,7 +25,8 @@
 
 .about-header {
   text-align: center;
-  margin-bottom: 5rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .section-badge {
@@ -57,53 +58,6 @@
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.8;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 5rem;
-}
-
-.service-card {
-  padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.service-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(102, 126, 234, 0.5);
-  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-}
-
-.service-icon {
-  font-size: 3rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1.5rem;
-}
-
-.service-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 1rem;
-}
-
-.service-description {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
 }
 
 .skills-section {
@@ -188,24 +142,6 @@
 
 @media screen and (max-width: 768px) {
   .about {
-    padding: 5rem 0;
-  }
-
-  .about-header {
-    margin-bottom: 3rem;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-
-  .service-card {
-    padding: 2rem;
-  }
-
-  .skills-section {
-    padding: 2rem;
+    padding: 3rem 0;
   }
 }

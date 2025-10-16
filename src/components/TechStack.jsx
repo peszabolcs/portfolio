@@ -10,16 +10,16 @@ const TechStack = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const technologies = [
-    { icon: <FaReact />, name: 'React & React Native', level: 95, color: '#61DAFB' },
-    { icon: <SiTypescript />, name: 'TypeScript', level: 92, color: '#3178C6' },
-    { icon: <SiSvelte />, name: 'SvelteKit', level: 88, color: '#FF3E00' },
-    { icon: <FaAngular />, name: 'Angular', level: 85, color: '#DD0031' },
-    { icon: <SiTailwindcss />, name: 'Tailwind CSS', level: 95, color: '#06B6D4' },
-    { icon: <FaPython />, name: 'Python', level: 87, color: '#3776AB' },
-    { icon: <SiDjango />, name: 'Django', level: 87, color: '#092E20' },
-    { icon: <FaNode />, name: 'Node.js', level: 85, color: '#339933' },
-    { icon: <SiPostgresql />, name: 'PostgreSQL', level: 88, color: '#4169E1' },
-    { icon: <SiPhp />, name: 'PHP', level: 80, color: '#777BB4' },
+    { icon: <FaReact />, name: 'React & React Native', color: '#61DAFB' },
+    { icon: <SiTypescript />, name: 'TypeScript', color: '#3178C6' },
+    { icon: <SiSvelte />, name: 'SvelteKit', color: '#FF3E00' },
+    { icon: <FaAngular />, name: 'Angular', color: '#DD0031' },
+    { icon: <SiTailwindcss />, name: 'Tailwind CSS', color: '#06B6D4' },
+    { icon: <FaPython />, name: 'Python', color: '#3776AB' },
+    { icon: <SiDjango />, name: 'Django', color: '#092E20' },
+    { icon: <FaNode />, name: 'Node.js', color: '#339933' },
+    { icon: <SiPostgresql />, name: 'PostgreSQL', color: '#4169E1' },
+    { icon: <SiPhp />, name: 'PHP', color: '#777BB4' },
   ];
 
   const containerVariants = {
@@ -83,16 +83,6 @@ const TechStack = () => {
                 <div className="tech-icon">{tech.icon}</div>
               </div>
               <h3 className="tech-name">{tech.name}</h3>
-              <div className="tech-level-bar">
-                <motion.div
-                  className="tech-level-fill"
-                  initial={{ width: 0 }}
-                  animate={isInView ? { width: `${tech.level}%` } : {}}
-                  transition={{ duration: 1, delay: 0.3 + index * 0.05, ease: "easeOut" }}
-                  style={{ backgroundColor: tech.color }}
-                />
-              </div>
-              <span className="tech-level-text">{tech.level}%</span>
             </motion.div>
           ))}
         </motion.div>

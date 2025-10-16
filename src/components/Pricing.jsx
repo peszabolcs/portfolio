@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { FaCheck, FaStar } from 'react-icons/fa';
-import './Pricing.css';
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { FaCheck, FaStar } from "react-icons/fa";
+import "./Pricing.css";
 
 const Pricing = () => {
   const ref = useRef(null);
@@ -10,57 +10,56 @@ const Pricing = () => {
 
   const pricingPlans = [
     {
-      name: 'Gyors',
-      price: 'Egyedi',
-      period: 'árajánlat',
-      description: 'Ideális kisebb projektekhez és landing oldalakhoz',
+      name: "Gyors",
+      price: "139,000",
+      period: "árajánlat",
+      description: "Ideális kisebb projektekhez és landing oldalakhoz",
       features: [
-        'Egyedi, reszponzív design',
-        'Akár 5 aloldal',
-        'Mobilbarát kivitelezés',
-        'SEO optimalizálás',
-        'Kapcsolati űrlap',
-        '1 hónap ingyenes support',
+        "Egyedi, reszponzív design",
+        "Akár 5 aloldal",
+        "Mobilbarát kivitelezés",
+        "Kapcsolati űrlap",
+        "1 hónap ingyenes support",
       ],
       popular: false,
-      color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     },
     {
-      name: 'Profi',
-      price: 'Egyedi',
-      period: 'árajánlat',
-      description: 'Komplex weboldalakhoz és teljes körű alkalmazásokhoz',
+      name: "Profi",
+      price: "299,000",
+      period: "árajánlat",
+      description: "Komplex weboldalakhoz és teljes körű alkalmazásokhoz",
       features: [
-        'Minden a Kezdő csomagból',
-        'Akár 15 aloldal',
-        'Admin felület',
-        'Részletes analitika',
-        'E-commerce funkciók',
-        'Newsletter integráció',
-        '3 hónap ingyenes support',
-        'Performance optimalizálás',
+        "Minden a Kezdő csomagból",
+        "Akár 15 aloldal",
+        "Admin felület",
+        "Részletes analitika",
+        "Newsletter integráció",
+        "3 hónap ingyenes support",
+        "Performance optimalizálás",
+        "SEO alapok",
       ],
       popular: true,
-      color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     },
     {
-      name: 'Enterprise',
-      price: 'Egyedi',
-      period: 'árajánlat',
-      description: 'Nagyvállalatok és komplex alkalmazások számára',
+      name: "Enterprise",
+      price: "Egyedi árajánlat",
+      period: "",
+      description: "Nagyvállalatok és komplex alkalmazások számára",
       features: [
-        'Minden a Profi csomagból',
-        'Korlátlan aloldal',
-        'Custom funkciók',
-        'API fejlesztés',
-        'Cloud hosting setup',
-        'CI/CD pipeline',
-        '12 hónap prioritásos support',
-        'Dedikált project manager',
-        'Teljes körű dokumentáció',
+        "Minden a Profi csomagból",
+        "Korlátlan aloldal",
+        "Custom funkciók",
+        "API fejlesztés",
+        "Cloud hosting setup",
+        "CI/CD pipeline",
+        "12 hónap prioritásos support",
+        "Dedikált project manager",
+        "Teljes körű dokumentáció",
       ],
       popular: false,
-      color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
     },
   ];
 
@@ -95,9 +94,12 @@ const Pricing = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="section-badge">Árazás</span>
-          <h2 className="section-title">Válaszd ki a Neked Megfelelő Csomagot</h2>
+          <h2 className="section-title">
+            Válaszd ki a Neked Megfelelő Csomagot
+          </h2>
           <p className="section-description">
-            Átlátható, fix árak. Minden csomag tartalmazza a modern webfejlesztés alapjait.
+            Átlátható, fix árak. Minden csomag tartalmazza a modern
+            webfejlesztés alapjait.
           </p>
         </motion.div>
 
@@ -110,7 +112,7 @@ const Pricing = () => {
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={index}
-              className={`pricing-card ${plan.popular ? 'popular' : ''}`}
+              className={`pricing-card ${plan.popular ? "popular" : ""}`}
               variants={itemVariants}
               whileHover={{ y: -15, scale: 1.02 }}
               transition={{ duration: 0.3 }}
@@ -132,8 +134,12 @@ const Pricing = () => {
 
               <div className="pricing-card-price">
                 <span className="price-amount">{plan.price}</span>
-                <span className="price-currency">Ft</span>
-                <span className="price-period">/ {plan.period}</span>
+                {plan.price !== "Egyedi árajánlat" && (
+                  <span className="price-currency">Ft</span>
+                )}
+                {plan.period && (
+                  <span className="price-period">/ {plan.period}</span>
+                )}
               </div>
 
               <ul className="features-list">
@@ -147,7 +153,11 @@ const Pricing = () => {
 
               <button
                 className="pricing-cta"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Ajánlatot kérek
               </button>
