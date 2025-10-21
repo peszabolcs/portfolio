@@ -128,6 +128,7 @@ const Hero = () => {
                 .getElementById("contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
+            aria-label="Ugrás a kapcsolatfelvételi szekcióhoz"
           >
             Kezdjünk együtt dolgozni
           </button>
@@ -138,6 +139,7 @@ const Hero = () => {
                 .getElementById("portfolio")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
+            aria-label="Ugrás a portfólió szekcióhoz"
           >
             Portfólió megtekintése
           </button>
@@ -149,6 +151,7 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="social-link"
+            aria-label="GitHub profil megtekintése"
           >
             <FaGithub />
           </a>
@@ -157,15 +160,16 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="social-link"
+            aria-label="LinkedIn profil megtekintése"
           >
             <FaLinkedin />
           </a>
-          <a href="mailto:perjesidev@gmail.com" className="social-link">
+          <a href="mailto:perjesidev@gmail.com" className="social-link" aria-label="Email küldése">
             <FaEnvelope />
           </a>
         </motion.div>
 
-        <motion.div
+        <motion.button
           className="scroll-indicator"
           onClick={scrollToNext}
           animate={{
@@ -176,9 +180,10 @@ const Hero = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
+          aria-label="Görgetés a portfólió szekcióhoz"
         >
           <FaArrowDown />
-        </motion.div>
+        </motion.button>
       </motion.div>
     </section>
   );

@@ -90,12 +90,14 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div
+        <button
           className="mobile-menu-icon"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Menü bezárása" : "Menü megnyitása"}
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-        </div>
+        </button>
       </div>
     </motion.nav>
   );

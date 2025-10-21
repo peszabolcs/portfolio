@@ -1,0 +1,22 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://perjesidev.hu/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Google bot specific
+User-agent: Googlebot
+Allow: /
+
+# Bing bot specific
+User-agent: Bingbot
+Allow: /
+
+# Disallow admin or private paths (if any in the future)
+Disallow: /admin/
+Disallow: /.env
+Disallow: /api/internal/

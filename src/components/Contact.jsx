@@ -132,7 +132,7 @@ const Contact = () => {
                   <div className="info-content">
                     <h4 className="info-title">{info.title}</h4>
                     {info.link ? (
-                      <a href={info.link} className="info-value">
+                      <a href={info.link} className="info-value" aria-label={`${info.title}: ${info.value}`}>
                         {info.value}
                       </a>
                     ) : (
