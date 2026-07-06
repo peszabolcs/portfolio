@@ -1,14 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8b84b"/>
+      <stop offset="50%" stop-color="#7c5cbf"/>
+      <stop offset="100%" stop-color="#e8b84b"/>
     </linearGradient>
   </defs>
 
-  <!-- Background circle with gradient -->
-  <circle cx="64" cy="64" r="60" fill="url(#bgGradient)"/>
+  <!-- Dark rounded square with gold->purple->gold ring (matches the hero portrait) -->
+  <rect x="5" y="5" width="118" height="118" rx="30" fill="#0c0b14"/>
+  <rect x="8" y="8" width="112" height="112" rx="27" fill="none" stroke="url(#ring)" stroke-width="6"/>
 
-  <!-- PS text -->
-  <text x="64" y="82" font-family="Inter, system-ui, sans-serif" font-size="56" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-2">PS</text>
+  <!-- Gold PS monogram -->
+  <text x="64" y="88" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="66" fill="#e8b84b" text-anchor="middle" letter-spacing="-1">PS</text>
 </svg>
