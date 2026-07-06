@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/hu", "permanent": false },
+
+    { "source": "/hu/parksafe", "destination": "/hu#parksafe", "permanent": true },
+    { "source": "/hu/media", "destination": "/hu#media", "permanent": true },
+    { "source": "/hu/projektek", "destination": "/hu#parksafe", "permanent": true },
+    { "source": "/hu/rolam", "destination": "/hu#rolam", "permanent": true },
+    { "source": "/hu/kapcsolat", "destination": "/hu#kapcsolat", "permanent": true },
+
+    { "source": "/en/parksafe", "destination": "/en#parksafe", "permanent": true },
+    { "source": "/en/media", "destination": "/en#media", "permanent": true },
+    { "source": "/en/projects", "destination": "/en#parksafe", "permanent": true },
+    { "source": "/en/about", "destination": "/en#rolam", "permanent": true },
+    { "source": "/en/contact", "destination": "/en#kapcsolat", "permanent": true }
+  ]
+}
